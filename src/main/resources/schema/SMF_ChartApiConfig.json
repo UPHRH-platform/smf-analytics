@@ -7,7 +7,7 @@
         "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
         "dateRefField": "timestamp",
         "indexName": "fs-forms-data",
-        "esInstance": "QUADNARY",
+        "esInstance": "PRIMARY",
         "aggrQuery": "{\"aggs\":{\"Application Status\":{\"terms\":{\"field\":\"status.keyword\",\"size\":10}}}}"
       }
     ],
@@ -21,6 +21,35 @@
     "documentType": "_doc",
     "aggregationPaths": [
       "Application Status"
+    ],
+    "isCumulative": false,
+    "interval": "day",
+    "alwaysView": "",
+    "insight": {},
+    "_comment": " "
+  },
+  "applicationSubmissionTrend": {
+    "chartName": "Application Submission Trend",
+    "queries": [
+      {
+        "module": "COMMON",
+        "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
+        "dateRefField": "timestamp",
+        "indexName": "fs-forms-data",
+        "esInstance": "PRIMARY",
+        "aggrQuery": "{\"aggs\":{\"Application Submission Trend\":{\"date_histogram\":{\"field\":\"timestamp\",\"interval\":\"week\"},\"aggs\":{\"count\":{\"cardinality\":{\"field\":\"_id\"}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "resultType": "value",
+    "valueType": "number",
+    "isDecimal": true,
+    "action": "",
+    "filter": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Application Submission Trend"
     ],
     "isCumulative": false,
     "interval": "day",

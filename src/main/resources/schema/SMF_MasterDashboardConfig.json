@@ -27,7 +27,7 @@
           "vizArray": [
             {
               "id": 111,
-              "name": "Overview",
+              "name": "Application Status Count",
               "dimensions": {
                 "height": 250,
                 "width": 4
@@ -41,6 +41,27 @@
                   "name": "Application Status Count",
                   "code": "",
                   "chartType": "bar",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            },
+            {
+              "id": 111,
+              "name": "Application Submission Trend",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "vizType": "bar",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "applicationSubmissionTrend",
+                  "name": "Application Submission Trend",
+                  "code": "",
+                  "chartType": "line",
                   "filter": "",
                   "headers": []
                 }
