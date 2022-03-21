@@ -1,0 +1,18 @@
+{
+  "_comment": "Holds mapping for each role with and its associated dashboards",
+  "roles" : [
+    {
+      "_comment":"This is the SMF Admin role who sees mostly all the dashboards",
+      "roleId": 2068,
+      "roleName" : "SMF Admin",
+      "isSuper" : "",
+      "orgId": "",
+      "dashboards": [	
+		{
+          "name": "SMF Dashboards",
+          "id": "home"
+        }
+      ]
+    }   
+  ]
+}

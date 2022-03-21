@@ -1,0 +1,31 @@
+{
+  "applicationStatusWise": {
+    "chartName": "Applications Status Wise",
+    "queries": [
+      {
+        "module": "COMMON",
+        "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
+        "dateRefField": "timestamp",
+        "indexName": "fs-forms-data",
+        "esInstance": "QUADNARY",
+        "aggrQuery": "{\"aggs\":{\"Application Status\":{\"terms\":{\"field\":\"status.keyword\",\"size\":10}}}}"
+      }
+    ],
+    "chartType": "bar",
+    "resultType": "value",
+    "valueType": "number",
+    "isDecimal": true,
+    "action": "",
+    "filter": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Application Status"
+    ],
+    "isCumulative": false,
+    "interval": "day",
+    "alwaysView": "",
+    "insight": {},
+    "_comment": " "
+  }
+}

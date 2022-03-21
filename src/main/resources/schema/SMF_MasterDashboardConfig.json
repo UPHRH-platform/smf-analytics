@@ -1,0 +1,54 @@
+{
+  "_comment": "Master dashboard which holds all the possible visualisation. Note new dashboards/visualisations can be added",
+  "dashboards": [
+    {
+      "name": "SMF Dashboards",
+      "id": "home",
+      "isActive": "",
+      "style": "tabbed",
+      "filters": [
+        {
+          "name": "Status",
+          "id": 1,
+          "key": "status",
+          "values": [
+            "ALL",
+            "New",
+            "Approved",
+            "Rejected"
+          ]
+        }
+      ],
+      "widgetCharts": [],
+      "visualizations": [
+        {
+          "row": 1,
+          "name": "Application Status Count",
+          "vizArray": [
+            {
+              "id": 111,
+              "name": "Overview",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "vizType": "bar",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "applicationStatusWise",
+                  "name": "Application Status Count",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
