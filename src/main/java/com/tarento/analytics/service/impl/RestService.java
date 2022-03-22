@@ -78,7 +78,7 @@ public class RestService {
 		} else if (instance.equals(Constants.TERNARY)) {
 			url = (indexServiceTernaryHost) + index + indexServiceHostSearch;
 		} else if (instance.equals(Constants.QUADNARY)) {
-			url = (indexServiceQuadnaryHostName) + ":" + (indexServiceQuadnaryPort) + "/" + index + indexServiceHostSearch;
+			url = "http://" + (indexServiceQuadnaryHostName) + ":" + (indexServiceQuadnaryPort) + "/" + index + indexServiceHostSearch;
 		}
 
 		HttpHeaders headers = getHttpHeaders(instance);
