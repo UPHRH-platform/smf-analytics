@@ -51,8 +51,10 @@ public class RestService {
 	private String quadnaryUsername;
 	@Value("${services.esindexer.quadnary.password}")
 	private String quadnaryPassword;
-	@Value("${services.esindexer.quadnary.host}")
-	private String indexServiceQuadnaryHost;
+	@Value("${services.esindexer.quadnary.host.name}")
+	private String indexServiceQuadnaryHostName;
+	@Value("${services.esindexer.quadnary.host.port}")
+	private String indexServiceQuadnaryPort;
 
 	@Autowired
 	private RetryTemplate retryTemplate;
@@ -76,7 +78,7 @@ public class RestService {
 		} else if (instance.equals(Constants.TERNARY)) {
 			url = (indexServiceTernaryHost) + index + indexServiceHostSearch;
 		} else if (instance.equals(Constants.QUADNARY)) {
-			url = (indexServiceQuadnaryHost) + index + indexServiceHostSearch;
+			url = (indexServiceQuadnaryHostName) + ":" + (indexServiceQuadnaryPort) + "/" + index + indexServiceHostSearch;
 		}
 
 		HttpHeaders headers = getHttpHeaders(instance);
