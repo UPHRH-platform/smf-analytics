@@ -7,7 +7,7 @@
         "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
         "dateRefField": "timestamp",
         "indexName": "fs-forms-data",
-        "esInstance": "PRIMARY",
+        "esInstance": "QUADNARY",
         "aggrQuery": "{\"aggs\":{\"Application Status\":{\"terms\":{\"field\":\"status.keyword\",\"size\":10}}}}"
       }
     ],
@@ -36,7 +36,7 @@
         "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
         "dateRefField": "timestamp",
         "indexName": "fs-forms-data",
-        "esInstance": "PRIMARY",
+        "esInstance": "QUADNARY",
         "aggrQuery": "{\"aggs\":{\"Application Submission Trend\":{\"date_histogram\":{\"field\":\"timestamp\",\"interval\":\"week\"},\"aggs\":{\"count\":{\"cardinality\":{\"field\":\"_id\"}}}}}}"
       }
     ],
