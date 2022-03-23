@@ -3,7 +3,7 @@
   "roles" : [
     {
       "_comment":"This is the SMF Admin role who sees mostly all the dashboards",
-      "roleId": 2068,
+      "roleId": 2092,
       "roleName" : "SMF Admin",
       "isSuper" : "",
       "orgId": "",
