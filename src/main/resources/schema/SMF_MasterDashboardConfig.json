@@ -32,7 +32,7 @@
                 "height": 250,
                 "width": 4
               },
-              "vizType": "bar",
+              "vizType": "chart",
               "noUnit": true,
               "isCollapsible": false,
               "charts": [
@@ -53,7 +53,7 @@
                 "height": 250,
                 "width": 4
               },
-              "vizType": "bar",
+              "vizType": "chart",
               "noUnit": true,
               "isCollapsible": false,
               "charts": [
