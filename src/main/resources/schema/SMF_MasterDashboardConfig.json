@@ -19,7 +19,17 @@
           ]
         }
       ],
-      "widgetCharts": [],
+      "widgetCharts": [
+      	{
+          "id": "totalApplications",
+          "name": "Total Applications",
+          "code": "",
+          "chartType": "metric",
+          "order": 1,
+          "filter": "",
+          "headers": []
+        }      
+      ],
       "visualizations": [
         {
           "row": 1,
@@ -62,6 +72,54 @@
                   "name": "Application Submission Trend",
                   "code": "",
                   "chartType": "line",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            },
+            {
+              "id": 111,
+              "name": "Performing Lead Inspectors",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "performingLeadInspectors",
+                  "name": "Performing Lead Inspectors",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 2,
+          "name": "Application Status Count",
+          "vizArray": [
+            {
+              "id": 111,
+              "name": "Pending Approved and Rejected",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "vizType": "chart",
+              "noUnit": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "pendingApprovedRejected",
+                  "name": "Pending Approved and Rejected",
+                  "code": "",
+                  "chartType": "pie",
                   "filter": "",
                   "headers": []
                 }

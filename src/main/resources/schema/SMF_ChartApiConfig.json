@@ -41,7 +41,7 @@
       }
     ],
     "chartType": "line",
-    "resultType": "value",
+    "resultType": "doc_count",
     "valueType": "number",
     "isDecimal": true,
     "action": "",
@@ -50,6 +50,93 @@
     "documentType": "_doc",
     "aggregationPaths": [
       "Application Submission Trend"
+    ],
+    "isCumulative": false,
+    "interval": "day",
+    "alwaysView": "",
+    "insight": {},
+    "_comment": " "
+  },
+  "totalApplications": {
+    "chartName": "Total Applications",
+    "queries": [
+      {
+        "module": "COMMON",
+        "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
+        "dateRefField": "timestamp",
+        "indexName": "fs-forms-data",
+        "esInstance": "QUADNARY",
+        "aggrQuery": "{\"aggs\":{\"Total Applications\":{\"cardinality\":{\"field\":\"_id\"}}}}"
+      }
+    ],
+    "chartType": "metric",
+    "resultType": "value",
+    "valueType": "number",
+    "isDecimal": false,
+    "action": "",
+    "filter": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Total Applications"
+    ],
+    "isCumulative": false,
+    "interval": "day",
+    "alwaysView": "",
+    "insight": {},
+    "_comment": " "
+  },
+  "performingLeadInspectors": {
+    "chartName": "Performing Lead Inspectors",
+    "queries": [
+      {
+        "module": "COMMON",
+        "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
+        "dateRefField": "timestamp",
+        "indexName": "fs-forms-data",
+        "esInstance": "QUADNARY",
+        "aggrQuery": "{\"aggs\":{\"Inspection Completed\":{\"filter\":{\"bool\":{\"filter\":[{\"terms\":{\"status.keyword\":[\"INSCOMPLETED\"],\"boost\":1}}],\"adjust_pure_negative\":true,\"boost\":1}},\"aggs\":{\"Performing Lead Inspectors\":{\"terms\":{\"field\":\"inspection.leadInspector\"}}}}}}"
+      }
+    ],
+    "chartType": "bar",
+    "resultType": "",
+    "valueType": "number",
+    "isDecimal": true,
+    "action": "",
+    "filter": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Performing Lead Inspectors"
+    ],
+    "isCumulative": false,
+    "interval": "day",
+    "alwaysView": "",
+    "insight": {},
+    "_comment": " "
+  },
+  "pendingApprovedRejected": {
+    "chartName": "Total Pending, Approved and Rejected Applications",
+    "queries": [
+      {
+        "module": "COMMON",
+        "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
+        "dateRefField": "timestamp",
+        "indexName": "fs-forms-data",
+        "esInstance": "QUADNARY",
+        "aggrQuery": "{\"aggs\":{\"Only New Approved Rejected\":{\"filter\":{\"bool\":{\"filter\":[{\"terms\":{\"status.keyword\":[\"NEW\",\"APPROVED\",\"REJECTED\"],\"boost\":1}}],\"adjust_pure_negative\":true,\"boost\":1}},\"aggs\":{\"Application Status\":{\"terms\":{\"field\":\"status.keyword\",\"size\":10},\"aggs\":{\"Count of Applications\":{\"cardinality\":{\"field\":\"_id\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "resultType": "doc_count",
+    "valueType": "number",
+    "isDecimal": true,
+    "action": "",
+    "filter": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Application Status"
     ],
     "isCumulative": false,
     "interval": "day",
