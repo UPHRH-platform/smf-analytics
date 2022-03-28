@@ -88,6 +88,7 @@ public class LineChartResponseHandler implements IResponseHandler {
 						double previousVal = !isCumulative ? 0.0
 								: (totalValues.size() > 0 ? totalValues.get(totalValues.size() - 1) : 0.0);
 
+
 						double value;
 						if (action.equals("Negative Count") && action != null
 								&& bucket.findValue(IResponseHandler.NEGATIVE_COUNT) != null) {
@@ -95,7 +96,7 @@ public class LineChartResponseHandler implements IResponseHandler {
 									? bucket.findValue(IResponseHandler.VALUE).asDouble() * -1
 									: bucket.findValue(IResponseHandler.DOC_COUNT).asDouble());
 						} else {
-							if (bucket.findValue(IResponseHandler.CUMULATIVE_VALUE) != null) {
+							if (isCumulative) {
 								value = previousVal + ((bucket.findValue(IResponseHandler.VALUE) != null)
 										? bucket.findValue(IResponseHandler.VALUE).asDouble()
 										: bucket.findValue(IResponseHandler.DOC_COUNT).asDouble());
@@ -115,17 +116,21 @@ public class LineChartResponseHandler implements IResponseHandler {
 					.map(e -> new Plot(e.getKey(), e.getValue(), symbol, headerLabel, valueLabel))
 					.collect(Collectors.toList());
 			try {
-				Data data = new Data(headerPath.asText(), (totalValues == null || totalValues.isEmpty()) ? 0.0
-						: totalValues.stream().reduce(0.0, Double::sum), symbol);
-				/*
-				 * Data data; if(!isCumulative) { data = new Data(headerPath.asText(),
-				 * (totalValues==null || totalValues.isEmpty()) ? 0.0 :
-				 * totalValues.stream().reduce(0.0, Double::sum), symbol); } else { data = new
-				 * Data(headerPath.asText(), (totalValues==null || totalValues.isEmpty()) ? 0.0
-				 * : plots.get(plots.size()-1), symbol); }
-				 */
+//				Data data = new Data(headerPath.asText(), (totalValues == null || totalValues.isEmpty()) ? 0.0
+//						: totalValues.stream().reduce(0.0, Double::sum), symbol);
+
+				Data data;
+
+				if (!isCumulative) {
+					data = new Data(headerPath.asText(), (totalValues == null || totalValues.isEmpty()) ? 0.0
+							: totalValues.stream().reduce(0.0, Double::sum), symbol);
+				} else {
+					data = new Data(headerPath.asText(),
+							(totalValues == null || totalValues.isEmpty()) ? 0.0 : plots.get(plots.size() - 1), symbol);
+				}
 				data.setPlots(plots);
 				dataList.add(data);
+
 			} catch (Exception e) {
 				logger.error(" Legend/Header " + headerPath.asText() + " exception occurred " + e.getMessage());
 			}

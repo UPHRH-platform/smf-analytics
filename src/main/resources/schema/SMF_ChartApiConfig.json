@@ -157,7 +157,7 @@
       }
     ],
     "chartType": "line",
-    "resultType": "doc_count",
+    "resultType": "value",
     "valueType": "number",
     "isDecimal": true,
     "action": "",
