@@ -165,8 +165,9 @@
     "drillChart": "none",
     "documentType": "_doc",
     "aggregationPaths": [
-      "Application Submission Trend",
-      "Application Inspection Trend" 
+    "Application Inspection Trend",
+      "Application Submission Trend"
+      
     ],
     "isCumulative": true,
     "interval": "day",
