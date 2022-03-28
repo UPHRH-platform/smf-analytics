@@ -38,6 +38,7 @@
             {
               "id": 111,
               "name": "Application Status Count",
+              "description": "A view of all the applications and their status",
               "dimensions": {
                 "height": 250,
                 "width": 4
@@ -59,6 +60,7 @@
             {
               "id": 111,
               "name": "Application Submission Trend",
+              "description": "Over a period of time, how many applications have been submitted and the trend",
               "dimensions": {
                 "height": 250,
                 "width": 4
@@ -80,6 +82,7 @@
             {
               "id": 111,
               "name": "Performing Lead Inspectors",
+              "description": "High performing Lead Inspectors and their inspections count",
               "dimensions": {
                 "height": 250,
                 "width": 4
@@ -107,6 +110,7 @@
             {
               "id": 111,
               "name": "Pending Approved and Rejected",
+              "description": "A split of the status indicators to get a high level view of all the applications",
               "dimensions": {
                 "height": 250,
                 "width": 4

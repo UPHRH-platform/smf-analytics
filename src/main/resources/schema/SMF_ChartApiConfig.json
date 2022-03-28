@@ -95,7 +95,7 @@
         "dateRefField": "timestamp",
         "indexName": "fs-forms-data",
         "esInstance": "QUADNARY",
-        "aggrQuery": "{\"aggs\":{\"Inspection Completed\":{\"filter\":{\"bool\":{\"filter\":[{\"terms\":{\"status.keyword\":[\"INSCOMPLETED\"],\"boost\":1}}],\"adjust_pure_negative\":true,\"boost\":1}},\"aggs\":{\"Performing Lead Inspectors\":{\"terms\":{\"field\":\"inspection.leadInspector\"}}}}}}"
+        "aggrQuery": "{\"aggs\":{\"Inspection Completed\":{\"filter\":{\"bool\":{\"filter\":[{\"terms\":{\"inspection.assignedTo.status.keyword\":[\"INSCOMPLETED\"],\"boost\":1}}],\"adjust_pure_negative\":true,\"boost\":1}},\"aggs\":{\"Lead Inspector Status\":{\"terms\":{\"field\":\"inspection.assignedTo.leadInspector\",\"size\":10},\"aggs\":{\"Performing Lead Inspectors\":{\"terms\":{\"field\":\"inspection.assignedTo.firstName.keyword\",\"size\":5}}}}}}}}"
       }
     ],
     "chartType": "bar",
