@@ -143,5 +143,35 @@
     "alwaysView": "",
     "insight": {},
     "_comment": " "
+  },
+  "applicationSubmittedVsInspected": {
+    "chartName": "Applications Submitted Vs Inspected",
+    "queries": [
+      {
+        "module": "COMMON",
+        "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
+        "dateRefField": "timestamp",
+        "indexName": "fs-forms-data",
+        "esInstance": "QUADNARY",
+        "aggrQuery": "{\"aggs\":{\"Application Submission Trend\":{\"date_histogram\":{\"field\":\"timestamp\",\"interval\":\"week\"},\"aggs\":{\"count\":{\"cardinality\":{\"field\":\"_id\"}}}},\"Application Inspection Trend\":{\"date_histogram\":{\"field\":\"inspection.inspectionCompletedDate\",\"interval\":\"week\"},\"aggs\":{\"count\":{\"cardinality\":{\"field\":\"_id\"}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "resultType": "doc_count",
+    "valueType": "number",
+    "isDecimal": true,
+    "action": "",
+    "filter": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Application Submission Trend",
+      "Application Inspection Trend" 
+    ],
+    "isCumulative": true,
+    "interval": "day",
+    "alwaysView": "",
+    "insight": {},
+    "_comment": " "
   }
 }
