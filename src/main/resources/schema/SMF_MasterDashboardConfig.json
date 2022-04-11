@@ -28,6 +28,15 @@
           "order": 1,
           "filter": "",
           "headers": []
+        },
+        {
+          "id": "averageDaysTakenToCompleteInspection",
+          "name": "Average Days Taken to Complete Inspection",
+          "code": "",
+          "chartType": "metric",
+          "order": 1,
+          "filter": "",
+          "headers": []
         }      
       ],
       "visualizations": [

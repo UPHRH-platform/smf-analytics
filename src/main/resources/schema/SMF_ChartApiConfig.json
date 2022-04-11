@@ -174,5 +174,35 @@
     "alwaysView": "",
     "insight": {},
     "_comment": " "
+  },
+  "averageDaysTakenToCompleteInspection": {
+    "chartName": "Average Days Taken to Complete Inspection",
+    "queries": [
+      {
+        "module": "COMMON",
+        "requestQueryMap": "{\r\n  \"ts\" : \"timestamp\"}",
+        "dateRefField": "timestamp",
+        "indexName": "fs-forms-data",
+        "esInstance": "QUADNARY",
+        "aggrQuery": ""
+      }
+    ],
+    "chartType": "metric",
+    "resultType": "value",
+    "valueType": "number",
+    "isDecimal": true,
+    "action": "",
+    "filter": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+    "Average Response Days"
+      
+    ],
+    "isCumulative": true,
+    "interval": "day",
+    "alwaysView": "",
+    "insight": {},
+    "_comment": " "
   }
 }

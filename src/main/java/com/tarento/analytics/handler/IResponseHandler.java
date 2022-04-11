@@ -217,6 +217,8 @@ public interface IResponseHandler {
 				sortedMap.get(plKey).setValue(value);
 			}
 		}
+		
+	
 		logger.info("after appending missing plots : "+ sortedMap);
 		data.setPlots(sortedMap.values().stream().collect(Collectors.toList()));
 	}

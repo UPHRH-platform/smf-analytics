@@ -416,7 +416,13 @@ public class QueryServiceImpl implements QueryService {
 	@Override
 	public ObjectNode getChartConfigurationQuery(AggregateRequestDto request, JsonNode query, String indexName,
 			String interval) {
-		String aggrQuery = query.get(Constants.JsonPaths.AGGREGATION_QUERY).asText();
+		String visualizationCode = request.getVisualizationCode();
+		String aggrQuery = null; 
+		if("averageDaysTakenToCompleteInspection".equals(visualizationCode)) { 
+			aggrQuery = "{\"aggs\":{\"Filters\":{\"filter\":{\"exists\":{\"field\":\"createdDate\"}},\"aggs\":{\"Filters2\":{\"filter\":{\"exists\":{\"field\":\"inspection.inspectionCompletedDate\"}},\"aggs\":{\"Average Response Days\":{\"avg\":{\"script\":\"(doc['inspection.inspectionCompletedDate'].value.toInstant().toEpochMilli()- doc['createdDate'].value.toInstant().toEpochMilli())/1000/86400\"}}}}}}}}";  
+		} else { 
+			aggrQuery = query.get(Constants.JsonPaths.AGGREGATION_QUERY).asText();
+		}
 		if (interval != null && !interval.isEmpty())
 			aggrQuery = aggrQuery.replace(Constants.JsonPaths.INTERVAL_VAL, interval);
 		String rqMs = query.get(Constants.JsonPaths.REQUEST_QUERY_MAP).asText();
